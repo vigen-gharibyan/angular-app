@@ -17,7 +17,10 @@ export class UserService {
     }
 
     create(user: User) {
-        return this.http.post(appConfig.apiUrl + '/users/register', user);
+        return this.http.post(appConfig.apiUrl + '/users/register', user)
+          .map(user => {
+            return user;
+          });
     }
 
     update(user: User) {
